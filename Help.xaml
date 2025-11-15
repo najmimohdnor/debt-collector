@@ -1,0 +1,101 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Debt_Collector.Help">
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Margin="10,0">
+            <!-- Page Title -->
+            <Label Text="Help" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20" FontFamily="Arial" />
+            <Image Source="help_image.png" WidthRequest="50" HeightRequest="50"/>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+
+            <!-- Getting Started -->
+            <Label Text="Getting Started" FontSize="22" FontAttributes="Bold" Margin="0,10" />
+            <Frame BorderColor="LightGray" Padding="15" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Frame BackgroundColor="Black" CornerRadius="10">
+                        <Label Text="Add a Debt Record" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" TextColor="White" />
+                    </Frame>
+                    <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <VerticalStackLayout>
+                        <Label Text="Go to the Home page." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="Enter the person's name, phone number, select the debt type (I owe/Owes me), and enter the debt amount." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="Click the 'Add Debt Record' button to save the debt record." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Frame BorderColor="LightGray" Padding="15" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Frame BackgroundColor="Black" CornerRadius="10">
+                        <Label Text="Managing Debt Records" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" TextColor="White" />
+                    </Frame>
+                    <VerticalStackLayout>
+                        <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="In the Record List section, you can view all your debt records." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="Use the 'Paid' button to subtract the amount from the debt balance." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="Use the 'Add Debt' button to add to the debt balance and total debt amount." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="Use the 'Delete' button to remove a debt record." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Frame BorderColor="LightGray" Padding="15" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Frame BackgroundColor="Black" CornerRadius="10">
+                        <Label Text="Viewing Activity Logs" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" TextColor="White" />
+                    </Frame>
+                    <VerticalStackLayout>
+                        <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="Click the 'View Activity Logs' button on the Home page to navigate to the Activity Logs page." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="Here, you can see a list of all activities related to your debt records." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="Whenever there is a logs in the page, you can remove each list with the (-) icon." HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                        <Label Text="You can also remove all the logs through 'Clear All Logs'" HorizontalOptions="Start" VerticalOptions="Center" Margin="0,5"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- FAQs -->
+            <Label Text="FAQs" FontSize="22" FontAttributes="Bold" Margin="0,10" />
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Frame BorderColor="LightGray" Padding="10" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Label Text="Q: Is there a limit to the number of debt records I can add?" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <Label Text="A: No, you can add as many debt records as you need. The app is designed to handle multiple entries efficiently." HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Frame BorderColor="LightGray" Padding="10" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Label Text="Q: How do I contact support if I encounter an issue?" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <Label Text="A: You can contact support with the provided email and phone contact information for assistance." HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Frame BorderColor="LightGray" Padding="10" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Label Text="Q: Is there a way to filter or search through my debt records?" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <Label Text="A: Yes, you can edit or delete a debt by selecting it from the list and choosing the appropriate option." HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+            <!-- Support Contact -->
+            <Label Text="Support Contact" FontSize="22" FontAttributes="Bold" Margin="0,10" />
+            <Frame BorderColor="LightGray" Padding="10" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout Spacing="10">
+                    <Button Text="Email: justnamilol@gmail.com" FontSize="16" TextColor="White" BackgroundColor="Black" Margin="0,0"/>
+                    <Button Text="Phone: 0196053192" FontSize="16" TextColor="White" BackgroundColor="Black"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

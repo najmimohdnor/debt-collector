@@ -1,0 +1,140 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Debt_Collector.MainPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <!-- Page Title -->
+            <Image Source="debt_collector.png" WidthRequest="128" HeightRequest="128"/>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Image Source="wave_image.png" WidthRequest="50" HeightRequest="50"/>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+
+            <!-- Welcome Label -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Hi! Welcome," FontSize="20" HorizontalOptions="Center" Margin="5,10" />
+                <Label x:Name="ProfileNameLabel"
+                    Text="User"
+                    FontSize="20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" TextColor="SlateBlue" FontAttributes="Bold" Margin="5,0"/>
+                <ImageButton Source="edit_icon.png" BorderColor="LightGray"
+                    WidthRequest="24"
+                    HeightRequest="24"
+                    VerticalOptions="Center"
+                    Clicked="OnEditProfileName" />
+            </HorizontalStackLayout>
+            <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            
+
+            <!-- Instruction Box -->
+            <Frame BorderColor="DarkOrange" Padding="10" CornerRadius="15" Margin="0,10">
+                <Label Text="Please fill in the required details." HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+            
+            <VerticalStackLayout>
+                <!-- Person Details Section -->
+                <Label Text="Person Details" FontSize="18" FontAttributes="Bold" Margin="0,10" />
+                <Frame BorderColor="LightGray" Padding="10" CornerRadius="30" Margin="0,5">
+                    <Entry Placeholder="Person Name" x:Name="PersonNameEntry" Keyboard="Text"/>
+                </Frame>
+                <!-- Phone Number -->
+                <Frame BorderColor="LightGray" Padding="10" CornerRadius="30" Margin="0,5">
+                    <Entry Placeholder="Phone Number" x:Name="PhoneNumberEntry" Keyboard="Telephone" />
+                </Frame>
+                <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                <!-- Debt Details Section -->
+                <Label Text="Debt Details" FontSize="18" FontAttributes="Bold" Margin="0,10" />
+                <!-- Debt Type-->
+                <Frame BorderColor="SlateBlue" Padding="10" CornerRadius="30" Margin="0,5">
+                    <Picker x:Name="DebtTypePicker" Title="Debt Type">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>I owe</x:String>
+                                <x:String>Owes me</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Frame>
+                <Frame BorderColor="LightGray" Padding="10" CornerRadius="30" Margin="0,5">
+                    <Entry Placeholder="Debt Amount (RM): " x:Name="TotalDebtAmountEntry" Keyboard="Numeric" />
+                </Frame>
+                <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,15" />
+                <Button Text="Add Debt Record" Clicked="OnAddRecord" CornerRadius="30" Padding="20"/>
+                <Button Text="View Activity Logs" Clicked="OnViewActivityLog" Margin="0,10" BackgroundColor="Black" CornerRadius="30" Padding="20"/>
+            </VerticalStackLayout>
+            
+            <!-- Record List Section -->
+            <Label Text="Record List" FontSize="18" FontAttributes="Bold" Margin="0,20,0,20" />
+
+            <!-- Placeholder for no records -->
+            <Frame x:Name="PlaceholderFrame" BorderColor="LightGray" Padding="10" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <Label Text="Your record(s) list will appear here. Currently no record are available." HorizontalOptions="Center" VerticalOptions="Center" />
+                <Frame.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Records.Count}" Value="0">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Records.Count}" Value="1">
+                        <Setter Property="IsVisible" Value="False" />
+                    </DataTrigger>
+                </Frame.Triggers>
+            </Frame>
+
+            <CollectionView x:Name="RecordList" ItemsSource="{Binding Records}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" Padding="10" Margin="0,5" CornerRadius="10">
+                            <VerticalStackLayout Spacing="10">
+                                <HorizontalStackLayout>
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="28" TextColor="SlateBlue"/>
+                                    <Label Text="{Binding DebtType}" FontAttributes="Italic" Margin="5,0,0,0" />
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding PhoneNumber, StringFormat='Phone: {0}'}" />
+                                <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                                <!-- Combined Pending Status and Full Payment Progress -->
+                                <Frame Padding="10" CornerRadius="20">
+                                    <Frame.Triggers>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding DebtProgress}" Value="1">
+                                            <Setter Property="BorderColor" Value="Green" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding DebtProgress}" Value="{x:Static x:Double.NaN}">
+                                            <Setter Property="BorderColor" Value="Black" />
+                                        </DataTrigger>
+                                    </Frame.Triggers>
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding DebtStatus}" FontAttributes="Italic" FontSize="14" />
+                                        <Label Text="{Binding DebtProgress, StringFormat=' {0:P0}'}" HorizontalOptions="EndAndExpand" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                                <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                                <Grid ColumnDefinitions="*,*,*">
+                                    <Label Text="Total Debt (RM):" FontSize="Micro" FontAttributes="Bold" />
+                                    <Label Text="Total Paid (RM):" FontSize="Micro" FontAttributes="Bold" Grid.Column="1" />
+                                    <Label Text="Debt Balance (RM):" FontSize="Micro" FontAttributes="Bold" Grid.Column="2" />
+                                </Grid>
+                                <Grid ColumnDefinitions="*,*,*">
+                                    <Label Text="{Binding DebtAmount}" FontSize="Large" FontAttributes="Bold" Grid.Row="1" />
+                                    <Label Text="{Binding TotalPaid}" FontSize="Large" FontAttributes="Bold" Grid.Column="1" Grid.Row="1" />
+                                    <Label Text="{Binding Balance}" FontSize="Large" FontAttributes="Bold" Grid.Column="2" Grid.Row="1" />
+                                </Grid>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding CreationDate, StringFormat='Created on: {0:dd/MM/yyyy}'}" />
+                                            <Span Text="    " />
+                                            <Span Text="{Binding CreationDate, StringFormat='{0:hh:mm tt}'}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="5" Margin="0,10,0,0">
+                                    <Button Text="Paid" CommandParameter="{Binding .}" Clicked="OnPaid" Grid.Column="0" BackgroundColor="Black"/>
+                                    <Button Text="Add Debt" CommandParameter="{Binding .}" Clicked="OnAddDebt" Grid.Column="1" BackgroundColor="Black"/>
+                                    <Button Text="Delete" CommandParameter="{Binding .}" Clicked="OnDelete" Grid.Column="2" BackgroundColor="DarkRed"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

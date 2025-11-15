@@ -1,0 +1,78 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Debt_Collector.About">
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Margin="10,0">
+            <!-- Page Title -->
+            <Label Text="About" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20" FontFamily="Arial" />
+            <Image Source="about_image.png" WidthRequest="50" HeightRequest="50"/>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            
+
+            <!-- App Information -->
+            <Label Text="App Information" FontSize="22" FontAttributes="Bold" Margin="0,10" />
+            <Frame BorderColor="LightGray" Padding="15" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Label Text="Description" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Margin="0,5" />
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <Label Text="Debt Collector is a user-friendly application designed to help individuals manage and track their debts efficiently. Whether you owe someone or someone owes you, this app allows you to keep detailed records of all your debt transactions, ensuring you stay on top of your financial obligations." HorizontalOptions="Center" VerticalOptions="Center" Margin="0,5"/>
+                </VerticalStackLayout>
+            </Frame>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Frame BorderColor="LightGray" Padding="15" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Label Text="Features" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Margin="0,5" />
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <Label Text="1. Add, edit, and delete debt records." HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="2. Manage debt balances with ease." HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="3. View detailed activity logs for all transactions." HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="4. User-friendly interface with intuitive navigation." HorizontalOptions="Start" VerticalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+
+
+            <!-- Developer Information -->
+            <Label Text="Developer Information" FontSize="22" FontAttributes="Bold" Margin="0,10" />
+            <Frame BorderColor="LightGray" Padding="15" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Label Text="Developer Name" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <Label Text="Muhammad Najmi Bin Mohd Nor"  VerticalOptions="Center" HorizontalOptions="Center" Margin="0,5" />
+                </VerticalStackLayout>
+            </Frame>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Frame BorderColor="LightGray" Padding="15" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Label Text="Background" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <Label Text="Bachelor in Computer Science (Software Engineering) Hons., graduated in 2025. Born in Kajang, Selangor on 12/1/1998. Interested in technologies and arts with passion to revolutionize the world with brilliance and creativity."  VerticalOptions="Center" HorizontalOptions="Center" Margin="0,5" />
+                </VerticalStackLayout>
+            </Frame>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Frame BorderColor="LightGray" Padding="15" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Label Text="Contact Information" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                    <Label Text="Email: namicreates@gmail.com"  VerticalOptions="Center" HorizontalOptions="Center" Margin="0,5" />
+                    <Label Text="Phone: 0196053192"  VerticalOptions="Center" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+            <!-- Version Information -->
+            <Label Text="Version Information" FontSize="22" FontAttributes="Bold" Margin="0,10" />
+            <Frame BorderColor="LightGray" Padding="10" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                <VerticalStackLayout>
+                    <Frame BorderColor="LightGrey" BackgroundColor="Black" Padding="10" CornerRadius="10" HorizontalOptions="Fill" VerticalOptions="Center">
+                        <VerticalStackLayout>
+                            <Label Text="Current Version: 1.0.0" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" Padding="10"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                    <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,0" />
+                    <Label Text="Last Updated: 13/12/2024" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                </VerticalStackLayout>
+            </Frame>
+            <BoxView HeightRequest="0" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Image Source="debt_collector.png" WidthRequest="128" HeightRequest="128"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
